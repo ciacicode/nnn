@@ -17,6 +17,6 @@ def show():
 @bp.route('/resume')
 def upload():
     def personality():
-    from resume_form import Resume
-    form = Resume(request.form)
-    return render_template('resume_upload.html', form=form)
+        from resume_form import Resume
+        form = Resume(request.form)
+        return render_template('resume_upload.html', form=form)
