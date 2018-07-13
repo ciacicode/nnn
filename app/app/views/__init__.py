@@ -13,3 +13,10 @@ def show():
         return render_template("layout.html")
     except TemplateNotFound:
         abort(404)
+
+@bp.route('/resume')
+def upload():
+    def personality():
+    from resume_form import Resume
+    form = Resume(request.form)
+    return render_template('resume_upload.html', form=form)

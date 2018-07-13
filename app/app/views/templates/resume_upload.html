@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block resume_upload %}
+<section>
+	<header><h1>Upload a Resume</h1><br></header>
+	<form action="{{ url_for('upload')}}" method='POST'>
+			{{form.csrf_token}}
+			{{form.resume}}
+			{{form.submit(class="button")}}
+		</section>
+		<p>Powered by IBM Watson Personality Insights. No data input data is stored by Khaleesicode, this website only stores the response with the results so you can share them anonimously.</p>
+	</form>
+</section>
+{% endblock %}
