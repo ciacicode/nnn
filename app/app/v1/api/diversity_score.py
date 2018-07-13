@@ -115,4 +115,4 @@ class DiversityScore(Resource):
                                      "influence" : influence_score,
                                      "steadiness" : steadiness_score,
                                      "conscientiousness" : disc_conscient_score}}
-            return disc_score, 200, None
+            return disc_score, 201, None

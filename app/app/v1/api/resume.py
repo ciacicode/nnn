@@ -3,6 +3,8 @@ from __future__ import absolute_import, print_function
 
 from flask import request, g
 from flask_wtf import Form
+import os
+import json
 from .pdfToText import ConvertPdfToText
 import pdb
 
@@ -22,6 +24,9 @@ class Resume(Resource):
         else:
             file = request.files['file']
             #file is a binary from the post request
-            unbiased = ConvertPdfToText(file)
+            #save file to folder
+            file.save(os.path.join('v1/static/', file.filename))
+            #data is the text output from the convert function
+            unbiased = ConvertPdfToText(os.path.join('v1/static/', file.filename))
             #you must return an object that matches the schemas description in schemas.py
-            return unbiased, 201, None
+            return json.loads(unbiased), 201, None
