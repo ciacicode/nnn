@@ -28,7 +28,6 @@ def ConvertPdfToText(file):
         text += pageObj.extractText().encode('utf-8')
     if text != "":
        text = text
-
     cleanString = re.sub(r"[^a-zA-Z0-9]+", ' ', text )
     stopWordSet = set(stopwords.words('english'))
     tokens = word_tokenize(cleanString)

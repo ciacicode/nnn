@@ -6,24 +6,14 @@ from flask import request, g, jsonify
 from wtforms import SubmitField, TextAreaField, validators, ValidationError
 from watson_developer_cloud import PersonalityInsightsV3
 from datetime import datetime, date
+import os
+import pdb
+from .pdfToText import ConvertPdfToText
 import json
 
 from . import Resource
 from .. import schemas
 from config import Config
-
-class Profile(Form):
-    profile = TextAreaField('profile', [validators.Required()])
-    submit = SubmitField('Calculate')
-
-    def validate_profile(form, field):
-        """
-        Checks there are min 120 words
-        """
-        profile = field.data
-        words = profile.split(" ")
-        if len(words) < 120:
-            raise ValidationError('Profile must have more than 120 words. Try harder!')
 
 def get_personality_insights(profile):
     """
@@ -96,13 +86,11 @@ class DiversityScore(Resource):
             #if not, redirect maybe to GET??? to do
             return redirect(request.url)
         else:
-            #file = request.files['file']
-            #file = "some random text"
-            #file is a binary from the post request
-            #you must return an object that matches the schemas description in schemas.py
-            f = open('cv.txt','r')
-            data = f.read()
-
+            file = request.files['file']
+            #save file to folder
+            file.save(os.path.join('v1/static/', file.filename))
+            #data is the text output from the convert function
+            data = ConvertPdfToText(os.path.join('v1/static/', file.filename))
             insights = get_personality_insights(data)
             data = generate_data(insights, category='personality')
             labels = data.get('labels')
@@ -123,10 +111,8 @@ class DiversityScore(Resource):
             influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
             steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
             disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
-            disc_score = {"personality" : {"dominance" : dominance_score, 
-                                     "influence" : influence_score, 
-                                     "steadiness" : steadiness_score, 
+            disc_score = {"personality" : {"dominance" : dominance_score,
+                                     "influence" : influence_score,
+                                     "steadiness" : steadiness_score,
                                      "conscientiousness" : disc_conscient_score}}
             return disc_score, 200, None
-        
-    

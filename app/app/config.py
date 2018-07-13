@@ -13,3 +13,4 @@ class Config(object):
             "limit" : "300"
 }
     SECRET_KEY = "notsosecret"
+    UPLOAD_FOLDER ='/v1/static'
