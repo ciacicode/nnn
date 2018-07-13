@@ -4,6 +4,7 @@ from __future__ import absolute_import
 from flask import Flask
 
 import v1
+import views
 
 
 def create_app():
@@ -11,6 +12,7 @@ def create_app():
     app.register_blueprint(
         v1.bp,
         url_prefix='/v1')
+    app.register_blueprint(views.bp, url_prefix='/views')
     return app
 
 if __name__ == '__main__':
