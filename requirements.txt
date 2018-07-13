@@ -11,6 +11,7 @@ idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
 jsonschema==2.6.0
+logging==0.4.9.6
 MarkupSafe==1.0
 pytz==2018.5
 requests==2.19.1
