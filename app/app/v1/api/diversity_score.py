@@ -24,7 +24,7 @@ class Profile(Form):
         words = profile.split(" ")
         if len(words) < 120:
             raise ValidationError('Profile must have more than 120 words. Try harder!')
-            
+
 def get_personality_insights(profile):
     """
     profile: text input
@@ -40,7 +40,7 @@ def get_personality_insights(profile):
     year = today.year
     month = today.month
     personality = personality_insights.profile(profile, content_type='text/plain;charset=utf-8',raw_scores=True, consumption_preferences=True)
-    
+
     #serialise to string and then to object
     result = json.loads(json.dumps(personality))
     return result
@@ -93,7 +93,6 @@ class DiversityScore(Resource):
 
     def post(self):
         #print(g.form)
-        
 
-        return {}, 200, None
-    
+        mock_score = {"personality": {"dominance": 0, "steadiness": 0,"conscientiousness": 0,"influence": 0}}
+        return mock_score, 200, None

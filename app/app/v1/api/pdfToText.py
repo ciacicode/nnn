@@ -3,6 +3,7 @@ import re
 import json
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+import pdb
 
 def ConvertPdfToText(file):
     #pdfFileObj = open('./static/test.pdf', 'rb')
