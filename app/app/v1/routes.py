@@ -2,8 +2,8 @@
 
 ###
 ### DO NOT CHANGE THIS FILE
-### 
-### The code is auto generated, your change will be overwritten by 
+###
+### The code is auto generated, your change will be overwritten by
 ### code generating.
 ###
 from __future__ import absolute_import
@@ -14,5 +14,4 @@ from .api.diversity_score import DiversityScore
 
 routes = [
     dict(resource=Resume, urls=['/resume'], endpoint='resume'),
-    dict(resource=DiversityScore, urls=['/diversity_score'], endpoint='diversity_score'),
-]
+    dict(resource=DiversityScore, urls=['/diversity_score'], endpoint='diversity_score')]
