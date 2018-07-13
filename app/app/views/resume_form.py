@@ -1,7 +1,7 @@
 #class for Resume input form
 from flask_wtf import Form
 from flask_wtf.file import FileField
-from wtforms import SubmitField, TextAreaField, validators, ValidationError
+from wtforms import SubmitField
 
 class Resume(Form):
     resume = FileField('file')
