@@ -31,8 +31,11 @@ def diversity():
     form = Resume(request.form)
     if form.validate_on_submit():
         # show resume_result
-        result = {'score': 0.5, 'personality': {"Dominance": 0.8, "Influence":0.4, "Conscientiousness":0.7, "Steadiness": 0.9 }}
-        return render_template('diversity_result.html', result=result)
+        # call diversity_score functions
+        # store in insights
+        insights = [{"candidate":{"personality": {"Dominance": 0.8, "Influence":0.4, "Conscientiousness":0.7,"Steadiness":0.9 }}},
+        {"team": {"personality": {"Dominance":0.4, "Influence":0.7, "Conscientiousness":0.4, "Steadiness":0.7 }}}]
+        return render_template('diversity_result.html', insights=insights)
     else:
         #it's a get request
         return render_template('diversity_upload.html', form=form)
