@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block diversity_result %}
+<section>
+	<article>
+		<header><h4>Maximise Diversity</h4><br></header>
+			<table>
+		  <thead>
+		    <tr>
+					<th>Candidate</th>
+		      <th>Dominance</th>
+		      <th>Influence</th>
+		      <th>Conscientiousness</th>
+					<th>Steadiness</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Candidate Name</td>
+		      <td>{{result.personality.Dominance}}</td>
+		      <td>{{result.personality.Influence}}</td>
+		      <td>{{result.personality.Conscientiousness}}</td>
+					<td>{{result.personality.Steadiness}}</td>
+		    </tr>
+		    <tr>
+		      <td>Team</td>
+		      <td>team dominance</td>
+		      <td>team influence</td>
+		      <td>team Conscientiousness</td>
+				  <td>team steadiness</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</article>
+</section>
+{% endblock %}

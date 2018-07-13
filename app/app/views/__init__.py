@@ -16,7 +16,7 @@ def show():
         abort(404)
 
 @bp.route('/resume', methods=['GET', 'POST'])
-def upload():
+def unbias():
     form = Resume(request.form)
     if form.validate_on_submit():
         # show resume_result
@@ -25,3 +25,14 @@ def upload():
     else:
         #it's a get request
         return render_template('resume_upload.html', form=form)
+
+@bp.route('/diversity', methods=['GET', 'POST'])
+def diversity():
+    form = Resume(request.form)
+    if form.validate_on_submit():
+        # show resume_result
+        result = {'score': 0.5, 'personality': {"Dominance": 0.8, "Influence":0.4, "Conscientiousness":0.7, "Steadiness": 0.9 }}
+        return render_template('diversity_result.html', result=result)
+    else:
+        #it's a get request
+        return render_template('diversity_upload.html', form=form)
