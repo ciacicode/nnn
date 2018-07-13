@@ -19,8 +19,8 @@ Nearly Nameless Nick is an API aimed at removing unconscious bias that may exist
 ## How to contribute
 Clone this repository and apply your changes, then open a pull request for approval.
 
-* ```core``` stores the business logic
-* ```apis``` stores the different namespaces a.k.a objects handled by the API
-* ```app``` handles the endpoints of the API
-
-This prototype is built with [Flask Restplus](http://flask-restplus.readthedocs.io/en/latest/index.html)
+* ```validators``` store any request validators
+* ```api``` stores the classes of objects to be created (POST) and responded (GET) etc
+* ```routes``` handles the endpoints of the API
+* ```schemas``` handles the response objects
+* ```templates``` handles all html pages of this app
