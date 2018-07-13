@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block resume_upload %}
+<section>
+	<header><h4>Upload a Resume</h4><br></header>
+	<form action="{{ url_for('views.unbias')}}" method='POST'>
+			{{form.csrf_token}}
+			{{form.resume}}
+			{{form.submit(class="button")}}
+		</section>
+		<p>Powered by MiQ Nearly Nameless Nick.</p>
+	</form>
+</section>
+{% endblock %}

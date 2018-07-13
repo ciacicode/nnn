@@ -24,7 +24,7 @@ class Profile(Form):
         words = profile.split(" ")
         if len(words) < 120:
             raise ValidationError('Profile must have more than 120 words. Try harder!')
-            
+
 def get_personality_insights(profile):
     """
     profile: text input
@@ -123,10 +123,10 @@ class DiversityScore(Resource):
             influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
             steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
             disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
-            
-            return {"personality" : {"dominance" : dominance_score, 
+            disc_score = {"personality" : {"dominance" : dominance_score, 
                                      "influence" : influence_score, 
                                      "steadiness" : steadiness_score, 
-                                     "conscient" : disc_conscient_score}}, 200, None
+                                     "conscientiousness" : disc_conscient_score}}
+            return disc_score, 200, None
         
     

@@ -12,3 +12,4 @@ class Config(object):
             "password": "vT6J6CZMON2G",
             "limit" : "300"
 }
+    SECRET_KEY = "notsosecret"
