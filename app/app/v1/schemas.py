@@ -24,8 +24,8 @@ validators = {
 }
 
 filters = {
-    ('resume', 'POST'): {200: {'headers': None, 'schema': {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}}, 400: {'headers': None, 'schema': None}},
-    ('diversity_score', 'POST'): {200: {'headers': None, 'schema': {u'type': u'object', u'properties': { u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}}},
+    ('resume', 'POST'): {201: {'headers': None, 'schema': {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}}, 400: {'headers': None, 'schema': None}},
+    ('diversity_score', 'POST'): {201: {'headers': None, 'schema': {u'type': u'object', u'properties': { u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}}},
 }
 
 scopes = {

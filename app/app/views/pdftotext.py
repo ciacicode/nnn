@@ -1,10 +1,9 @@
 import PyPDF2
-import re
+import re, os
 import json
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-import pdb
-
+MYDIR = os.path.basename(__file__)
 def ConvertPdfToText(file):
     #pdfFileObj = open('./static/test.pdf', 'rb')
     pdfFileObj = open(file, 'rb')
@@ -28,6 +27,7 @@ def ConvertPdfToText(file):
         text += pageObj.extractText().encode('utf-8')
     if text != "":
        text = text
+
     cleanString = re.sub(r"[^a-zA-Z0-9]+", ' ', text )
     stopWordSet = set(stopwords.words('english'))
     tokens = word_tokenize(cleanString)
@@ -53,7 +53,7 @@ def ConvertPdfToText(file):
     #file = open('./static/fileText.json','w')
     #file.write(jsonData)
     #file.close()
-    return json.dumps(data)
+    return data
 
 #output = ConvertPdfToText('./static/test.pdf')
 #jsonData = json.dumps(output)

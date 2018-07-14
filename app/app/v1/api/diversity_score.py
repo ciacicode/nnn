@@ -5,8 +5,11 @@ from flask_wtf import Form
 from flask import request, g, jsonify
 from wtforms import SubmitField, TextAreaField, validators, ValidationError
 from watson_developer_cloud import PersonalityInsightsV3
-from datetime import datetime, date
 import os
+
+
+
+from .pdfToText import ConvertPdfToText
 import json
 import pandas as pd
 
@@ -14,19 +17,6 @@ from . import Resource
 from .. import schemas
 from config import Config
 
-
-class Profile(Form):
-    profile = TextAreaField('profile', [validators.Required()])
-    submit = SubmitField('Calculate')
-
-    def validate_profile(form, field):
-        """
-        Checks there are min 120 words
-        """
-        profile = field.data
-        words = profile.split(" ")
-        if len(words) < 120:
-            raise ValidationError('Profile must have more than 120 words. Try harder!')
 
 def get_personality_insights(profile):
     """
@@ -134,15 +124,34 @@ class DiversityScore(Resource):
             #if not, redirect maybe to GET??? to do
             return redirect(request.url)
         else:
-            #file = request.files['file']
-            #file is a binary from the post request
-            #you must return an object that matches the schemas description in schemas.py
-            f = open('cv.txt','r')
-            data = f.read()           
-            candidate_disc_score = get_disc_score(data)
-            team_disc_score = get_team_scores()
-            score_list.append(candidate_disc_score)
-            score_list.append(team_disc_score)
-            return score_list, 200, None
-        
-    
+
+            file = request.files['file']
+            #save file to folder
+            file.save(os.path.join('v1/static/', file.filename))
+            #data is the text output from the convert function
+            data = ConvertPdfToText(os.path.join('v1/static/', file.filename))
+            insights = get_personality_insights(data)
+            data = generate_data(insights, category='personality')
+            labels = data.get('labels')
+            raw_scores = data.get('raw_scores')
+            for index, label in enumerate(labels):
+                if label == 'Openness':
+                    openness_score = raw_scores[index]
+                if label == 'Conscientiousness':
+                    ocean_conscient_score = raw_scores[index]
+                if label == 'Extraversion':
+                    extraversion_score = raw_scores[index]
+                if label == 'Agreeableness':
+                    agreeableness_score = raw_scores[index]
+                if label == 'Emotional range':
+                    emotional_score = raw_scores[index]
+            #print(openness_score, conscient_score, extraversion_score, agreeableness_score, emotional_score)
+            dominance_score = -0.023*extraversion_score + 0.126*openness_score - 0.278*agreeableness_score + 0.039*ocean_conscient_score - 0.297*emotional_score
+            influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
+            steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
+            disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
+            disc_score = {"personality" : {"dominance" : dominance_score,
+                                     "influence" : influence_score,
+                                     "steadiness" : steadiness_score,
+                                     "conscientiousness" : disc_conscient_score}}
+            return disc_score, 201, None
