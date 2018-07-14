@@ -6,11 +6,14 @@ from flask import request, g, jsonify
 from wtforms import SubmitField, TextAreaField, validators, ValidationError
 from watson_developer_cloud import PersonalityInsightsV3
 from datetime import datetime, date
+import os
 import json
+import pandas as pd
 
 from . import Resource
 from .. import schemas
 from config import Config
+
 
 class Profile(Form):
     profile = TextAreaField('profile', [validators.Required()])
@@ -72,61 +75,77 @@ def generate_data(insights, category='personality'):
         print("te")
 
 
-def generate_all_data(insights):
-    """
-    insights: as json from watson
-    returns an object containing data for each dimension and hence chart
-    """
-    all_data = dict()
-    for dimension in insights.keys():
-        if dimension in ['warnings','word_count','processed_language', 'consumption_preferences']:
-            #we don't care
-            continue
-        else:
-            #it's a dimension we want
-            chart_data = generate_data(insights,dimension)
-            all_data[dimension] = chart_data
-    return all_data
+def get_disc_score(plain_text):
+    
+    #get all personality data from watson
+    insights = get_personality_insights(plain_text)
+    
+    #parse peronality data from insights
+    data = generate_data(insights, category='personality')
+    labels = data.get('labels')
+    raw_scores = data.get('raw_scores')
+    for index, label in enumerate(labels):
+        if label == 'Openness':
+            openness_score = raw_scores[index]
+        if label == 'Conscientiousness':
+            ocean_conscient_score = raw_scores[index]
+        if label == 'Extraversion':
+            extraversion_score = raw_scores[index]
+        if label == 'Agreeableness':
+            agreeableness_score = raw_scores[index]
+        if label == 'Emotional range':
+            emotional_score = raw_scores[index]
+                    
+    #calculate disc score from ocean score
+    dominance_score = -0.023*extraversion_score + 0.126*openness_score - 0.278*agreeableness_score + 0.039*ocean_conscient_score - 0.297*emotional_score
+    influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
+    steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
+    disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
+    
+    disc_score = {"candidate": {"personality" : {"Dominance" : dominance_score+1, 
+                                     "Influence" : influence_score+1, 
+                                     "Steadiness" : steadiness_score+1, 
+                                     "Conscientiousness" : disc_conscient_score+1
+                                     }
+                                }
+                    }
+    
+    return disc_score
+
+def get_team_scores():
+    with open(os.path.join('v1/static/', 'team_scores.csv'), 'r') as csvFile:
+        team_score_df = pd.read_csv(csvFile)
+        dominance_score = team_score_df['D'].mean()
+        influence_score = team_score_df['i'].mean()
+        steadiness_score = team_score_df['S'].mean()
+        disc_conscient_score = team_score_df['C'].mean()
+    disc_score = {"candidate": {"personality" : {"Dominance" : dominance_score, 
+                                     "Influence" : influence_score, 
+                                     "Steadiness" : steadiness_score, 
+                                     "Conscientiousness" : disc_conscient_score
+                                     }
+                                }
+                    }
+    return disc_score
 
 class DiversityScore(Resource):
 
     def post(self):
+        score_list = []
         if 'file' not in request.files:
             print ('No file part')
             #if not, redirect maybe to GET??? to do
             return redirect(request.url)
         else:
             #file = request.files['file']
-            #file = "some random text"
             #file is a binary from the post request
             #you must return an object that matches the schemas description in schemas.py
             f = open('cv.txt','r')
-            data = f.read()
-
-            insights = get_personality_insights(data)
-            data = generate_data(insights, category='personality')
-            labels = data.get('labels')
-            raw_scores = data.get('raw_scores')
-            for index, label in enumerate(labels):
-                if label == 'Openness':
-                    openness_score = raw_scores[index]
-                if label == 'Conscientiousness':
-                    ocean_conscient_score = raw_scores[index]
-                if label == 'Extraversion':
-                    extraversion_score = raw_scores[index]
-                if label == 'Agreeableness':
-                    agreeableness_score = raw_scores[index]
-                if label == 'Emotional range':
-                    emotional_score = raw_scores[index]
-            #print(openness_score, conscient_score, extraversion_score, agreeableness_score, emotional_score)
-            dominance_score = -0.023*extraversion_score + 0.126*openness_score - 0.278*agreeableness_score + 0.039*ocean_conscient_score - 0.297*emotional_score
-            influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
-            steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
-            disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
-            disc_score = {"personality" : {"dominance" : dominance_score, 
-                                     "influence" : influence_score, 
-                                     "steadiness" : steadiness_score, 
-                                     "conscientiousness" : disc_conscient_score}}
-            return disc_score, 200, None
+            data = f.read()           
+            candidate_disc_score = get_disc_score(data)
+            team_disc_score = get_team_scores()
+            score_list.append(candidate_disc_score)
+            score_list.append(team_disc_score)
+            return score_list, 200, None
         
     

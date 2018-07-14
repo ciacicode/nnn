@@ -1,88 +1,172 @@
 Employee Name,Team,D,i,S,C
-Aayushi Das,Tech,9,10,1,3
-Abhinav saxena,Tech,4,6,1,1
-ABHINAV YADAV,Tech,9,4,3,8
-Abhishek Goyal,Tech,8,6,10,5
-Abhishek Lath,Tech,6,4,7,6
-Abhishek Thakur,Tech,10,3,1,6
-Aishwary Bahirat,Tech,2,1,4,9
-Amandeep Singh Chhabra,Tech,2,6,4,2
-Anant Kaushik,Tech,10,10,10,10
-Ananya,Tech,10,5,7,2
-Anish,Tech,9,4,1,5
-Anmol Shrivastava,Tech,9,4,5,6
-Anuj Goel,Tech,3,3,6,10
-Aravinda s,Tech,2,1,9,5
-Arpit Solanki,Tech,3,9,6,4
-Arun Kumar,Tech,10,10,9,5
-ASHWIN SAHAY,Tech,1,10,4,8
-Avantika Dwivedi,Tech,1,10,3,1
-Bikash Kumar Singh,Tech,10,1,10,5
-Bitanshu Das,Tech,7,7,1,4
-Deeksha Gupta,Tech,4,4,7,10
-Diptarka Roy,Tech,5,2,3,5
-Gaurav Lotia,Tech,10,2,9,6
-Gurbir Sandhu,Tech,5,4,6,1
-HARSHIL GARG,Tech,1,5,9,9
-Ishita Gupta,Tech,10,6,3,6
-Jalaj Chhabra,Tech,1,4,1,4
-Jatin Kheradiya,Tech,8,4,9,4
-Jitendra parihar,Tech,9,3,6,3
-Juhi Agrawal,Tech,8,9,8,5
-Kanika Dawar,Tech,8,5,5,6
-Kartik Bhanot,Tech,9,4,5,9
-CH Kiran Kumar,Tech,7,4,3,1
-Koustubh Tol,Tech,10,2,2,8
-Lakshmi Saradhi Reddy,Tech,5,1,1,3
-Manasa,Tech,4,1,3,8
-Manoj Raj,Tech,6,8,4,3
-Monica Rawat,Tech,7,8,4,6
-Naveen B U,Tech,8,1,8,8
-Neha Nandwana,Tech,10,5,7,3
-Nikhil Goyal,Tech,7,3,7,2
-Nishant Kakar,Tech,2,10,6,4
-Parikshit Mittal,Tech,4,8,2,3
-Piyush Agarwal,Tech,8,9,8,8
-Pramada Johary,Tech,9,8,9,2
-prathiba V,Tech,5,1,6,4
-Praveen Kumar,Tech,8,6,10,1
-Naga Preethish Pandurangi,Tech,1,6,6,2
-Purva Goyal,Tech,5,1,3,4
-Rahul Kumar,Tech,10,10,1,6
-Rakesh Ravi,Tech,3,10,7,3
-Rakshit Chaudhary,Tech,2,1,10,3
-Rashmi,Tech,4,9,7,2
-Rashmme Eshwar,Tech,9,8,7,8
-Rohit Srivastava,Tech,2,1,8,7
-Rohit Kumar,Tech,7,7,6,5
-Rupal Khare,Tech,3,6,3,8
-Sagar Sumit,Tech,4,4,3,7
-samarth agrawal,Tech,1,2,4,1
-Sanmeet Singh Arora,Tech,8,7,1,9
-Saurabh Menon,Tech,8,2,10,6
-Sumita Mudgil,Tech,7,5,8,1
-SUMIT RAJAN,Tech,2,1,3,3
-Sunil Khandelwal,Tech,8,2,4,4
-surabhi ranjan,Tech,6,5,5,7
-Swamil Mahajan,Tech,4,9,1,3
-tanushree vinayak,Tech,3,9,2,2
-Tarun Prakash,Tech,4,3,1,2
-Ujwala Musku,Tech,2,6,5,5
-Vaibhav Jain,Tech,8,2,4,10
-Vaisakh,Tech,9,9,5,7
-Vatsal Srivastava,Tech,3,1,1,5
-Venkatesh Datta S,Tech,1,8,6,10
-vidula a,Tech,1,3,2,10
-Vidya Ravisundar,Tech,7,6,2,9
-Vishal Shah,Tech,1,10,1,10
-Rashmi Ganesh Rajapur,Tech,5,9,7,9
-Vyom Pankajkumar Bhatt,Tech,9,2,4,2
-Manish Khandelwal,Tech,9,10,1,10
-Pradeep C,Tech,4,4,9,7
-Nivedita Nandy,Tech,10,9,10,5
-Gopal Mondal,Tech,6,9,3,5
-Madhuri Behl,Tech,3,7,1,6
-MANIKANTA PRASANTH,Tech,3,4,5,1
-Aditya Jain,Tech,8,8,6,5
-Rajnish Singh,Tech,3,8,1,2
-Raajan Ashish Pal,Tech,1,1,1,1
+Jasmine Cicily Archard,Analysis,0.2,0.6,0.2,0.8
+Anant Kaushik,Tech,2,2,2,2
+Sameera Kodi,Analysis,2,1.6,0.8,0.8
+Arun Kumar,Tech,2,2,1.8,1
+Nolveera Jasmine DSilva,Analysis,0.2,1.8,2,0.4
+Aayushi Das,Tech,1.8,2,0.2,0.6
+pradeep C,Analysis,2,1.2,1,1.4
+Rakesh Ravi,Tech,0.6,2,1.4,0.6
+pratima vaska,Analysis,0.4,1.6,0.8,0.8
+ASHWIN SAHAY,Tech,0.2,2,0.8,1.6
+Priyanshu Gupta,Analysis,2,0.2,0.2,0.8
+Avantika Dwivedi,Tech,0.2,2,0.6,0.2
+Rahul Anand,Analysis,2,0.6,1.6,1.2
+Vishal Shah,Tech,0.2,2,0.2,2
+SARIKA,Analysis,0.6,1.2,1.4,1
+Nivedita Nandy,Tech,2,1.8,2,1
+Abhinav Bhardwaj,Analysis,1.8,1.4,0.6,0.8
+Vaisakh,Tech,1.8,1.8,1,1.4
+Apoorv Sharma,Analysis,1.8,1,2,1
+Juhi Agrawal,Tech,1.6,1.8,1.6,1
+Atul Saurabh,Analysis,1.8,1.8,1.2,0.4
+Raja Tirumalasetty,Analysis,1,1.6,1.8,0.4
+Gopal Mondal,Tech,1.2,1.8,0.6,1
+Abhimanyu Garg,Analysis,1.6,1.4,1.8,0.4
+Rashmi,Tech,0.8,1.8,1.4,0.4
+Amrutha Balachandran,Analysis,1.6,0.6,0.2,1.8
+Swamil Mahajan,Tech,0.8,1.8,0.2,0.6
+Anil Kumar,Analysis,1.6,0.6,1,1
+Arpit Solanki,Tech,0.6,1.8,1.2,0.8
+Dushyant Rai Tara,Analysis,1.6,0.4,1,1.6
+tanushree vinayak,Tech,0.6,1.8,0.4,0.4
+Madhushri Bhakta,Analysis,0.6,0.6,1.8,1.6
+Pramada Johary,Tech,1.8,1.6,1.8,0.4
+Nagaraj Appu Tantri,Analysis,1.6,1.2,0.2,2
+Rashmme Eshwar,Tech,1.8,1.6,1.4,1.6
+Navneet,Analysis,1.6,0.2,0.2,2
+Aditya Jain,Tech,1.6,1.6,1.2,1
+Brajendra Kumar Gouda,Analysis,1.4,1.8,1,1.6
+Monica Rawat,Tech,0.2,1.6,0.8,1.2
+Gopal Mondal,Analysis,1.4,1.4,1.8,1.8
+Manoj Raj,Tech,1.2,1.6,0.8,0.6
+Keshav Parashar Vanam,Analysis,1.4,1.6,0.8,0.4
+Rohit Agarwal,Analysis,1.4,0.6,1.4,0.6
+Parikshit Mittal,Tech,0.8,1.6,0.4,0.6
+Angana Sripur,Analysis,0.4,1.2,0.4,1.6
+Rajnish Singh,Tech,0.6,1.6,0.2,0.4
+Ashish Bodhankar,Analysis,1.2,2,0.8,2
+Venkatesh Datta S,Tech,0.2,1.6,1.2,2
+Kritika Rashi,Analysis,1.2,0.4,1.8,1.2
+Sanmeet Singh Arora,Tech,0.2,1.4,0.2,1.8
+Mohit Sudhakar,Analysis,1.2,1.8,1,1.2
+Bitanshu Das,Tech,1.4,1.4,0.2,0.8
+Ramkumar Venkatesan,Analysis,1.2,1.2,0.8,0.2
+Rohit Kumar,Tech,1.4,1.4,1.2,1
+rohan raj,Analysis,1.2,1.6,0.4,1.8
+Madhuri Behl,Tech,0.6,1.4,0.2,1.2
+Abhishek pandey,Analysis,1,0.4,1.2,1.4
+Ishita Gupta,Tech,2,1.2,0.6,1.2
+Archit Singh,Analysis,1,1,0.2,0.4
+Abhishek Goyal,Tech,1.6,1.2,2,1
+arun jain,Analysis,1,1,0.8,2
+Praveen Kumar,Tech,1.6,1.2,2,0.2
+Avishek Gurung,Analysis,1,0.6,1.2,1
+Vidya Ravisundar,Tech,1.4,1.2,0.4,1.8
+Devang Shah,Analysis,1,1.8,1.4,1.6
+Abhinav saxena,Tech,0.8,1.2,0.2,0.2
+Ishwari Deshmukh,Analysis,1,1.6,0.2,0.2
+Rupal Khare,Tech,0.6,1.2,0.6,1.6
+Karan Chhabra,Analysis,1,1.2,1.8,0.8
+Amandeep Singh Chhabra,Tech,0.4,1.2,0.8,0.4
+Manisha Soni,Analysis,1,0.8,2,0.6
+Ujwala Musku,Tech,0.4,1.2,1,1
+Netesh Kumar,Analysis,1,0.2,0.4,0.4
+Naga Preethish Pandurangi,Tech,0.2,1.2,1.2,0.4
+Aditya Jain,Analysis,0.8,0.6,1.4,0.6
+Ananth Shenoy,Analysis,0.8,1.4,0.8,0.8
+Rashmi Ganesh Rajapur,Tech,0.6,1,1.4,1.8
+Joel Charles Banna,Analysis,0.8,0.6,1.4,2
+Monali,Analysis,0.8,1.2,1.6,2
+Ananya,Tech,2,1,1.4,0.4
+PINKY MOOLANI,Analysis,0.8,0.4,1,1.6
+Neha Nandwana,Tech,0.2,1,1.4,0.6
+Kanala Saikiran,Analysis,0.8,1.4,0.4,0.8
+Kanika Dawar,Tech,0.2,1,1,1.2
+kaavya ramaswamy,Analysis,0.6,1,0.2,0.4
+Sumita Mudgil,Tech,1.4,1,1.6,0.2
+Hari Krishna Kunderu,Analysis,0.4,0.8,1,0.8
+surabhi ranjan,Tech,0.2,1,1,1.4
+Ishan Rastogi,Analysis,0.4,0.2,1.4,0.4
+HARSHIL GARG,Tech,0.2,1,1.8,1.8
+Maneesh,Analysis,0.4,0.2,0.4,0.6
+Piyush Agarwal,Tech,0.2,0.8,1.6,1.6
+Rakesh Ravi K U,Analysis,0.4,2,1,0.4
+ABHINAV YADAV,Tech,1.8,0.8,0.6,1.6
+Aastik Koshta,Analysis,0.2,1.2,0.8,1.2
+Anish,Tech,1.8,0.8,0.2,1
+Abhishek Chakraborty,Analysis,0.2,0.6,0.2,1.4
+Anmol Shrivastava,Tech,1.8,0.8,1,1.2
+Abhishek Kumar,Analysis,0.2,1,1.6,0.2
+Kartik Bhanot,Tech,1.8,0.8,1,1.8
+Aman Kumar Sharma,Analysis,0.2,1,1.8,0.8
+Jatin Kheradiya,Tech,1.6,0.8,1.8,0.8
+Ankit Raj,Analysis,0.2,1.6,0.4,0.6
+CH Kiran Kumar,Tech,1.4,0.8,0.6,0.2
+Anu,Analysis,0.2,0.6,1.8,1.2
+Abhishek Lath,Tech,0.2,0.8,1.4,1.2
+Bishwas Pattnaik,Analysis,0.2,1.4,0.8,1
+Gurbir Sandhu,Tech,0.6,0.8,1.2,0.2
+Chandrahaas Uniyal,Analysis,0.2,1.6,1.2,1.8
+Deeksha Gupta,Tech,0.8,0.8,1.4,2
+Jeffy,Analysis,0.2,1.4,0.6,0.2
+Sagar Sumit,Tech,0.8,0.8,0.6,1.4
+Nikit Swaraj,Analysis,0.2,1.8,0.8,1
+Pradeep C,Tech,0.8,0.8,1.8,1.4
+prasanna,Analysis,0.2,1.2,1.8,1.8
+MANIKANTA PRASANTH,Tech,0.6,0.8,1,0.2
+Praveen Kumar Pankaj,Analysis,0.2,0.2,1.6,1.8
+Jalaj Chhabra,Tech,0.2,0.8,0.2,0.8
+Rashmi Ganesh,Analysis,0.2,1.6,1.2,2
+Manish Khandelwal,Tech,1.8,0.6,0.2,2
+Ronak Vyas,Analysis,0.2,0.8,0.4,0.4
+Abhishek Thakur,Tech,2,0.6,0.2,1.2
+Rupsha Majumder,Analysis,0.2,1.8,1,0.4
+Jitendra parihar,Tech,1.8,0.6,1.2,0.6
+sandeep srivastava,Analysis,0.2,1.4,1.8,0.4
+Nikhil Goyal,Tech,0.6,0.6,1.4,0.4
+Saurabh Singh Mathuriya,Analysis,0.2,1.6,0.6,1
+Saurav Omar,Marketing,1.2,1.2,1.4,0.8
+Shamshu Dharwez Saganvali,Marketing,1.8,2,0.4,0.2
+Shan Mehrotra,Marketing,1.4,1.8,1.6,0.6
+Sharan Biradar,Marketing,0.4,2,0.8,0.8
+Sharvani Jha,Marketing,2,0.2,0.8,0.2
+Shashank Subramanya,Marketing,1,0.2,1.6,0.4
+Shivam Datta,Marketing,0.8,1,0.2,0.4
+Shraddha Mehta,Marketing,1.2,2,1.4,1.6
+Shreya,HR,0.2,2,1.4,1.8
+Shubham Dhoble,HR,0.6,1.6,0.2,1.4
+Sneha Chokshi,HR,1.4,0.4,1.4,0.6
+Esuradi Sneha Yadav,HR,2,2,1.2,1.4
+Sourabh agarwal,HR,0.4,2,0.8,0.4
+Sreejit Choudhury,HR,0.2,0.8,0.8,1.6
+Subhan Ansari,HR,1.4,2,0.2,1.8
+Suman Kumar,HR,1.2,1.4,2,1.4
+Suman Kumar,HR,2,1.2,2,1
+Sumit Srivastava,HR,0.8,0.8,0.2,1.8
+Tarun Prakash,Tech,0.8,0.6,0.2,0.4
+Anuj Goel,Tech,0.6,0.6,1.2,2
+vidula a,Tech,0.2,0.6,0.4,2
+Rahul Kumar,Tech,0.8,0.4,0.2,1.2
+Nishant Kakar,Tech,0.4,0.4,1.2,0.8
+Gaurav Lotia,Tech,0.4,0.4,1.8,1.2
+Koustubh Tol,Tech,2,0.4,0.4,1.6
+Vyom Pankajkumar Bhatt,Tech,1.8,0.4,0.8,0.4
+Saurabh Menon,Tech,0.6,0.4,2,1.2
+Sunil Khandelwal,Tech,1.6,0.4,0.8,0.8
+Vaibhav Jain,Tech,0.2,0.4,0.8,2
+Diptarka Roy,Tech,1,0.4,0.6,1
+samarth agrawal,Tech,0.2,0.4,0.8,0.2
+Bikash Kumar Singh,Tech,0.2,0.2,2,1
+Naveen B U,Tech,0.2,0.2,1.6,1.6
+Lakshmi Saradhi Reddy,Tech,1,0.2,0.2,0.6
+prathiba V,Tech,1,0.2,1.2,0.8
+Purva Goyal,Tech,1,0.2,0.6,0.8
+Manasa,Tech,0.8,0.2,0.6,1.6
+Vatsal Srivastava,Tech,0.6,0.2,0.2,1
+Aishwary Bahirat,Tech,0.4,0.2,0.8,1.8
+Aravinda s,Tech,0.4,0.2,1.8,1
+Rakshit Chaudhary,Tech,0.4,0.2,2,0.6
+Rohit Srivastava,Tech,0.4,0.2,1.6,1.4
+SUMIT RAJAN,Tech,0.4,0.2,0.6,0.6
+Raajan Ashish Pal,Tech,0.2,0.2,0.2,0.2
