@@ -88,10 +88,10 @@ def get_candidates_scores(plain_text):
     steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
     disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
     
-    disc_score = {"candidate": {"personality" : {"Dominance" : dominance_score+1, 
-                                     "Influence" : influence_score+1, 
-                                     "Steadiness" : steadiness_score+1, 
-                                     "Conscientiousness" : disc_conscient_score+1
+    disc_score = {"candidate": {"personality" : {"Dominance" : dominance_score, 
+                                     "Influence" : influence_score, 
+                                     "Steadiness" : steadiness_score, 
+                                     "Conscientiousness" : disc_conscient_score
                                      }
                                 }
                     }
@@ -114,10 +114,18 @@ def get_team_scores():
                     }
     return disc_score
 
+def get_both_scores(data):
+    score_list = []
+    candidate_score = get_candidates_scores(data)
+    team_score = get_team_scores()
+    score_list.append(candidate_score)
+    score_list.append(team_score)
+    print(score_list)
+    return score_list
+
 class DiversityScore(Resource):
 
     def post(self):
-        score_list = []
         if 'file' not in request.files:
             print ('No file part')
             #if not, redirect maybe to GET??? to do
@@ -128,8 +136,7 @@ class DiversityScore(Resource):
             file.save(os.path.join('v1/static/', file.filename))
             #data is the text output from the convert function
             data = ConvertPdfToText(os.path.join('v1/static/', file.filename))
-            candidate_score = get_candidates_scores(data)
-            team_score = get_team_scores()
-            score_list.append(candidate_score)
-            score_list.append(team_score)
-            return jsonify(score_list)
+            
+            result = get_both_scores(data)
+
+            return jsonify(result)
