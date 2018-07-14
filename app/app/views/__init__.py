@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import os
+from .biased import ConvertPdfToTextBiased
 from .pdftotext import ConvertPdfToText
 from flask import Blueprint, render_template, abort, request
 from jinja2 import TemplateNotFound
@@ -42,8 +43,8 @@ def diversity():
         file = request.files['resume']
         #file is stored in a folder
         file.save(os.path.join(MYDIR+'/static/', file.filename))
-        unbiased = ConvertPdfToText(MYDIR+'/static/'+file.filename)
-        insights = get_both_scores(unbiased)
+        biased = ConvertPdfToTextBiased(MYDIR+'/static/'+file.filename)
+        insights = get_both_scores(biased)
         return render_template('diversity_result.html', insights=json.dumps(insights))
     else:
         #it's a get request
