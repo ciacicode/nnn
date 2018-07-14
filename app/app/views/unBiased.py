@@ -1,11 +1,11 @@
 import PyPDF2
 import re, os
 import json
-import random
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+import random
 
-def ConvertPdfToText(file):
+def ExtractUnbiased(file):
     #pdfFileObj = open('./static/test.pdf', 'rb')
     pdfFileObj = open(file, 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
@@ -33,6 +33,7 @@ def ConvertPdfToText(file):
 
     #keywords = [word for word in tokens if not word in stop_words]
 
+    c=0
     for key in keys:
         for word in tokens:
             if word not in stopWordSet:
