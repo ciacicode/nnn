@@ -7,8 +7,7 @@ from wtforms import SubmitField, TextAreaField, validators, ValidationError
 from watson_developer_cloud import PersonalityInsightsV3
 import os
 
-
-
+import pdb
 from .pdfToText import ConvertPdfToText
 import json
 import pandas as pd
@@ -62,7 +61,7 @@ def generate_data(insights, category='personality'):
         print("te")
 
 
-def get_disc_score(plain_text):
+def get_candidates_scores(plain_text):
     
     #get all personality data from watson
     insights = get_personality_insights(plain_text)
@@ -106,7 +105,7 @@ def get_team_scores():
         influence_score = team_score_df['i'].mean()
         steadiness_score = team_score_df['S'].mean()
         disc_conscient_score = team_score_df['C'].mean()
-    disc_score = {"candidate": {"personality" : {"Dominance" : dominance_score, 
+    disc_score = {"team": {"personality" : {"Dominance" : dominance_score, 
                                      "Influence" : influence_score, 
                                      "Steadiness" : steadiness_score, 
                                      "Conscientiousness" : disc_conscient_score
@@ -124,34 +123,13 @@ class DiversityScore(Resource):
             #if not, redirect maybe to GET??? to do
             return redirect(request.url)
         else:
-
             file = request.files['file']
             #save file to folder
             file.save(os.path.join('v1/static/', file.filename))
             #data is the text output from the convert function
             data = ConvertPdfToText(os.path.join('v1/static/', file.filename))
-            insights = get_personality_insights(data)
-            data = generate_data(insights, category='personality')
-            labels = data.get('labels')
-            raw_scores = data.get('raw_scores')
-            for index, label in enumerate(labels):
-                if label == 'Openness':
-                    openness_score = raw_scores[index]
-                if label == 'Conscientiousness':
-                    ocean_conscient_score = raw_scores[index]
-                if label == 'Extraversion':
-                    extraversion_score = raw_scores[index]
-                if label == 'Agreeableness':
-                    agreeableness_score = raw_scores[index]
-                if label == 'Emotional range':
-                    emotional_score = raw_scores[index]
-            #print(openness_score, conscient_score, extraversion_score, agreeableness_score, emotional_score)
-            dominance_score = -0.023*extraversion_score + 0.126*openness_score - 0.278*agreeableness_score + 0.039*ocean_conscient_score - 0.297*emotional_score
-            influence_score = 0.383*extraversion_score + 0.251*openness_score + 0.114*agreeableness_score -0.196*ocean_conscient_score + 0.032*emotional_score
-            steadiness_score = -0.063*extraversion_score - 0.234*openness_score + 0.308*agreeableness_score - 0.054*ocean_conscient_score - 0.275*emotional_score
-            disc_conscient_score = -0.3*extraversion_score + -0.175*openness_score - 0.157*agreeableness_score + 0.185*ocean_conscient_score + -0.008*emotional_score
-            disc_score = {"personality" : {"dominance" : dominance_score,
-                                     "influence" : influence_score,
-                                     "steadiness" : steadiness_score,
-                                     "conscientiousness" : disc_conscient_score}}
-            return disc_score, 201, None
+            candidate_score = get_candidates_scores(data)
+            team_score = get_team_scores()
+            score_list.append(candidate_score)
+            score_list.append(team_score)
+            return jsonify(score_list)
