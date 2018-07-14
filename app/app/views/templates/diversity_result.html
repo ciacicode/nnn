@@ -1,36 +1,48 @@
 {% extends 'layout.html' %}
 {% block diversity_result %}
 <section>
-
+	<h3>Maximise your team's diversity</h3>
 	<canvas id="myChart" width="400" height="400"></canvas>
 
-	[{"candidate":{"personality":{"Conscientiousness":0.7,"Dominance":0.8,"Influence":0.4,"Steadiness":0.9}}},
-	{"team":{"personality":{"Conscientiousness":0.4,"Dominance":0.4,"Influence":0.7,"Steadiness":0.7}}}]
 </section>
 <script>
 	var insights_data = {{insights|safe}};
-	console.log(chart);
 	//create context element for display
 	var ctx = document.getElementById("myChart");
 	//get first and second element of array
-	var candidate_obj = insights_data[0];
-	console.log(candidate_obj);
-	var team_obj = insights_data[1];
-	console.log(team_obj);
+	var candidate_obj = JSON.parse(JSON.stringify(insights_data[0]))['candidate']['personality'];
+	var team_obj = JSON.parse(JSON.stringify(insights_data[1]))['team']['personality'];
+	var dimensions = Object.keys(team_obj);
+	//create labels array
+  var labels = [];
+	for (k=0; k< dimensions.length; k++){
+      var l = dimensions[k];
+      labels.push(l);
+    }
+	console.log("Labels:", labels);
 
 	//create candidate scores array
   var candidate_scores = [];
+	for (k=0; k< labels.length; k++){
+			var l = labels[k];
+			candidate_scores.push(candidate_obj[l]);
+		}
+	console.log("Candidate Scores: ", candidate_scores);
 	//create team scores array
 	var team_scores  = [];
-	//create labels array
-  var labels = [];
+	for (k=0; k< labels.length; k++){
+			var l = labels[k];
+			team_scores.push(team_obj[l]);
+		}
+	console.log("Team Scores: ", team_scores);
+
 
 	var data = {
 	    	//passin labels as label object from views
 	    	labels: labels,
 	    	datasets:[{
-	    		label:"Raw Score",
-	    		data: raw_scores,
+	    		label:"Candidate Scores",
+	    		data: candidate_scores,
 	    		fill:true,
 	    		backgroundColor:"rgba(255, 99, 132, 0.2)",
 	    		borderColor:"rgb(255, 99, 132)",
@@ -39,8 +51,8 @@
 	    		pointHoverBackgroundColor:"#fff",
 	    		pointHoverBorderColor:"rgb(255, 99, 132)"},
 	    		{
-	    			label:"Percentile",
-	    			data:percentiles,
+	    			label:"Team Scores",
+	    			data:team_scores,
 	    			fill:true,
 	    			backgroundColor:"rgba(54, 162, 235, 0.2)",
 	    			borderColor:"rgb(54, 162, 235)",
