@@ -38,7 +38,7 @@
 
 
 	var data = {
-	    	//passin labels as label object from views
+	    	//passing labels as label object from views
 	    	labels: labels,
 	    	datasets:[{
 	    		label:"Candidate Scores",
@@ -64,6 +64,19 @@
 	    	};
 	    console.log("Data variable: ", data);
 	    var options = {
+				legend: {
+            display: true,
+            labels: {
+                fontSize: 34
+            }
+        },
+				  scale:
+					{
+						pointLabelDisplay: "True",
+					  pointLabels:{
+						fontSize: 24
+						}
+					},
 	      	elements:{
 	      		line:{
 	      			tension:0,
