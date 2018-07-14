@@ -39,9 +39,6 @@ def get_personality_insights(profile):
         username=Config.WATSON['username'],
         password=Config.WATSON['password'])
     #check if we still have enough calls
-    today = date.today()
-    year = today.year
-    month = today.month
     personality = personality_insights.profile(profile, content_type='text/plain;charset=utf-8',raw_scores=True, consumption_preferences=True)
     #serialise to string and then to object
     result = json.loads(json.dumps(personality))
