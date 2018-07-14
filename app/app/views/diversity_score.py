@@ -96,7 +96,7 @@ def get_team_scores():
     with open(os.path.join('v1/static/', 'team_scores.csv'), 'r') as csvFile:
         team_score_df = pd.read_csv(csvFile)
         dominance_score = team_score_df['D'].mean()
-        influence_score = team_score_df['i'].mean()
+        influence_score = team_score_df['I'].mean()
         steadiness_score = team_score_df['S'].mean()
         disc_conscient_score = team_score_df['C'].mean()
     disc_score = {"team": {"personality" : {"Dominance" : dominance_score,
