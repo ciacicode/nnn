@@ -3,7 +3,7 @@
 <section>
 	<header><h4>Upload a Resume</h4><br></header>
 	<p>Maximise the diversity of your team</p>
-	<form action="{{ url_for('views.diversity')}}" method='POST'>
+	<form action="{{ url_for('views.diversity')}}" type="file" method='POST' enctype="multipart/form-data">
 			{{form.csrf_token}}
 			{{form.resume}}
 			{{form.submit(class="button")}}

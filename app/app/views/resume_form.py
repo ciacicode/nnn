@@ -4,7 +4,7 @@ from flask_wtf.file import FileField
 from wtforms import SubmitField
 
 class Resume(Form):
-    resume = FileField('file')
+    resume = FileField('resume')
     submit = SubmitField('Submit')
 
     # def validate_profile(form, field):

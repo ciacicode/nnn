@@ -5,6 +5,7 @@ from .pdftotext import ConvertPdfToText
 from flask import Blueprint, render_template, abort, request
 from jinja2 import TemplateNotFound
 from .resume_form import Resume
+from .diversity_score import get_both_scores
 import pdb
 import json
 
@@ -36,11 +37,12 @@ def unbias():
 def diversity():
     form = Resume(request.form)
     if form.validate_on_submit():
-        # show resume_result
-        # call diversity_score functions from shraddha's code
-        # store in insights
-        insights = [{"candidate":{"personality": {"Dominance": 0.8, "Influence":0.4, "Conscientiousness":0.7,"Steadiness":0.9 }}},
-        {"team": {"personality": {"Dominance":0.4, "Influence":0.7, "Conscientiousness":0.4, "Steadiness":0.7 }}}]
+        # store file
+        file = request.files['resume']
+        #file is stored in a folder
+        file.save(os.path.join(MYDIR+'/static/', file.filename))
+        unbiased = ConvertPdfToText(MYDIR+'/static/'+file.filename)
+        insights = get_both_scores(unbiased)
         return render_template('diversity_result.html', insights=json.dumps(insights))
     else:
         #it's a get request
