@@ -2,10 +2,67 @@
 {% block diversity_result %}
 <section>
 
+	<canvas id="myChart" width="400" height="400"></canvas>
 
+	[{"candidate":{"personality":{"Conscientiousness":0.7,"Dominance":0.8,"Influence":0.4,"Steadiness":0.9}}},
+	{"team":{"personality":{"Conscientiousness":0.4,"Dominance":0.4,"Influence":0.7,"Steadiness":0.7}}}]
 </section>
 <script>
-	var chart = JSON.stringify({{insights|tojson}});
+	var insights_data = {{insights|safe}};
 	console.log(chart);
+	//create context element for display
+	var ctx = document.getElementById("myChart");
+	//get first and second element of array
+	var candidate_obj = insights_data[0];
+	console.log(candidate_obj);
+	var team_obj = insights_data[1];
+	console.log(team_obj);
+
+	//create candidate scores array
+  var candidate_scores = [];
+	//create team scores array
+	var team_scores  = [];
+	//create labels array
+  var labels = [];
+
+	var data = {
+	    	//passin labels as label object from views
+	    	labels: labels,
+	    	datasets:[{
+	    		label:"Raw Score",
+	    		data: raw_scores,
+	    		fill:true,
+	    		backgroundColor:"rgba(255, 99, 132, 0.2)",
+	    		borderColor:"rgb(255, 99, 132)",
+	    		pointBackgroundColor:"rgb(255, 99, 132)",
+	    		pointBorderColor:"#fff",
+	    		pointHoverBackgroundColor:"#fff",
+	    		pointHoverBorderColor:"rgb(255, 99, 132)"},
+	    		{
+	    			label:"Percentile",
+	    			data:percentiles,
+	    			fill:true,
+	    			backgroundColor:"rgba(54, 162, 235, 0.2)",
+	    			borderColor:"rgb(54, 162, 235)",
+	    			pointBackgroundColor:"rgb(54, 162, 235)",
+	    			pointBorderColor:"#fff",
+	    			pointHoverBackgroundColor:"#fff",
+	    			pointHoverBorderColor:"rgb(54, 162, 235)"}
+	    		]
+	    	};
+	    console.log("Data variable: ", data);
+	    var options = {
+	      	elements:{
+	      		line:{
+	      			tension:0,
+	      			borderWidth:3
+	      		}
+	      	}
+	      };
+	var myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    options: options
+});
 </script>
 {% endblock %}

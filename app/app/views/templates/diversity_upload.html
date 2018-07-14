@@ -2,6 +2,7 @@
 {% block resume_upload %}
 <section>
 	<header><h4>Upload a Resume</h4><br></header>
+	<p>Maximise the diversity of your team</p>
 	<form action="{{ url_for('views.diversity')}}" method='POST'>
 			{{form.csrf_token}}
 			{{form.resume}}
