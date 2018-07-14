@@ -6,7 +6,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import docx2txt
 
-def ConvertPdfToText(file):
+def ConvertPdfToTextBiased(file):
     #pdfFileObj = open('./static/test.pdf', 'rb')
     text = ""
     data = {}
