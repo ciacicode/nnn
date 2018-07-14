@@ -133,14 +133,44 @@
       }
     },
     "DiversityScore": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "candidate": {
+            "type": "object",
+            "properties": {
+              "personality": {
+                "type": "object",
+                "$ref": "#/definitions/Personality"
+              }
+            }
+          },
+          "team": {
+            "type": "object",
+            "properties": {
+              "personality": {
+                "type": "object",
+                "$ref": "#/definitions/Personality"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Personality": {
       "type": "object",
       "properties": {
-        "score": {
-          "type": "integer",
-          "format": "int64"
+        "dominance": {
+          "type": "number"
         },
-        "personality": {
-          "type": "object"
+        "steadiness": {
+          "type": "number"
+        },
+        "conscientiousness": {
+          "type": "number"
+        },
+        "influence": {
+          "type": "number"
         }
       }
     }

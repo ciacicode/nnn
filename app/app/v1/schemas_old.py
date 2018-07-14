@@ -15,8 +15,8 @@ base_path = '/v1'
 
 
 DefinitionsPersonality = {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}
-DefinitionsResume = {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'awards': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}
-DefinitionsDiversityscore = {u'items': {u'properties': {u'candidate': {u'type': u'object', u'properties': {u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}, u'team': {u'type': u'object', u'properties': {u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}}}, u'type': u'array'}
+DefinitionsResume = {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}
+DefinitionsDiversityscore = {u'type': u'object', u'properties': {u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}
 
 validators = {
     ('resume', 'POST'): {'form': {'required': [], 'properties': {u'upfile': {u'type': u'file', u'description': u'The file to upload.'}}}},
@@ -24,8 +24,8 @@ validators = {
 }
 
 filters = {
-    ('resume', 'POST'): {201: {'headers': None, 'schema': {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'awards': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}}, 400: {'headers': None, 'schema': None}},
-    ('diversity_score', 'POST'): {200: {'headers': None, 'schema': {u'items': {u'properties': {u'candidate': {u'type': u'object', u'properties': {u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}, u'team': {u'type': u'object', u'properties': {u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}}}, u'type': u'array'}}},
+    ('resume', 'POST'): {201: {'headers': None, 'schema': {u'type': u'object', u'properties': {u'skills': {u'items': {u'type': u'string'}, u'type': u'array'}, u'education': {u'items': {u'type': u'string'}, u'type': u'array'}, u'id': {u'type': u'integer', u'format': u'int64'}, u'experience': {u'items': {u'type': u'string'}, u'type': u'array'}}}}, 400: {'headers': None, 'schema': None}},
+    ('diversity_score', 'POST'): {201: {'headers': None, 'schema': {u'type': u'object', u'properties': { u'personality': {u'type': u'object', u'properties': {u'influence': {u'type': u'number'}, u'dominance': {u'type': u'number'}, u'conscientiousness': {u'type': u'number'}, u'steadiness': {u'type': u'number'}}}}}}},
 }
 
 scopes = {

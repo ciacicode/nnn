@@ -28,6 +28,7 @@ def unbias():
         #file is stored in a folder
         file.save(os.path.join(MYDIR+'/static/', file.filename))
         unbiased = ConvertPdfToText(MYDIR+'/static/'+file.filename)
+        categories = unbiased.keys()
         return render_template('resume_result.html', result=unbiased)
     else:
         #it's a get request

@@ -3,12 +3,16 @@
 <section>
 	<article>
 		<header><h3>Candidate's Resume</h3><br></header>
-		<h4>Experience</h4>
+		{% for item in result %}
+		      <h4>{{item}}</h4>
+					<p>{{result[item]}}</p>
+		{% endfor %}
+		<!-- <h4>Experience</h4>
 		<p>{{result.experience}}</p>
 		<h4>Education</h4>
 		<p>{{result.education}}</p>
 		<h4>Skills</h4>
-		<p>{{result.skills}}</p>
+		<p>{{result.skills}}</p> -->
 	</article>
 </section>
 {% endblock %}

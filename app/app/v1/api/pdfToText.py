@@ -14,7 +14,7 @@ def ConvertPdfToText(file):
     text = ""
     data = {}
 
-    keys = ["skills", "experience", "education"]
+    keys = ["skills", "experience", "education", "awards"]
 
 
     for i in keys:
