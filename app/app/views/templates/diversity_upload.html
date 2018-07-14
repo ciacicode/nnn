@@ -1,8 +1,14 @@
 {% extends 'layout.html' %}
 {% block resume_upload %}
 <section>
-	<header><h4>Upload a Resume</h4><br></header>
-	<p>Maximise the diversity of your team</p>
+<nav>
+<a href="{{ url_for('views.unbias')}}">Generate Unbiased Summary</a>
+</nav>
+</section>
+<hr>
+<section>
+	<header><h4>Maximise the diversity of your team</h4><br></header>
+	<p>Upload a Resume</p>
 	<form action="{{ url_for('views.diversity')}}" type="file" method='POST' enctype="multipart/form-data">
 			{{form.csrf_token}}
 			{{form.resume}}
