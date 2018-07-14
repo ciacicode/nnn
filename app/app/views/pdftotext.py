@@ -5,11 +5,13 @@ import random
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import docx2txt
+from model_ouput_keywords import var
 
 def ConvertPdfToText(file):
     #pdfFileObj = open('./static/test.pdf', 'rb')
     text = ""
     data = {}
+    output_dict={}
     keys = ["skills", "experience", "education", "awards"]
 
     for i in keys:
@@ -38,10 +40,9 @@ def ConvertPdfToText(file):
 
     #keywords = [word for word in tokens if not word in stop_words]
 
-    for key in keys:
-        for word in tokens:
-            if word not in stopWordSet:
-                data[key].append(word)
+    for k,v in var.items():
+        new_set = set(v).intersection(set(tokens))
+        output_dict[k] = list(new_set)
 
     #jsonData = json.dumps(data)
 
@@ -52,7 +53,7 @@ def ConvertPdfToText(file):
     #file = open('./static/fileText.json','w')
     #file.write(jsonData)
     #file.close()
-    return data
+    return output_dict
 
 #output = ConvertPdfToText('./static/test.pdf')
 #jsonData = json.dumps(output)
