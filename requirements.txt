@@ -24,7 +24,7 @@ idna==2.7
 incremental==17.5.0
 ipaddress==1.0.22
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 json-spec==0.10.1
 jsonpointer==1.14
 jsonschema==2.6.0
